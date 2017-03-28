@@ -1,0 +1,20 @@
+{
+  "extensions": ["eot", "ttf", "woff", "woff2"],
+  "map": {
+    "public/assets/fonts/ionicons.eot": "fonts/ionicons.eot",
+    "public/assets/fonts/ionicons.ttf": "fonts/ionicons.ttf",
+    "public/assets/fonts/ionicons.woff": "fonts/ionicons.woff",
+    "public/assets/fonts/ionicons.woff2": "fonts/ionicons.woff2",
+    "public/assets/fonts/noto-sans-bold.ttf": "fonts/noto-sans-bold.ttf",
+    "public/assets/fonts/noto-sans-regular.ttf": "fonts/noto-sans-regular.ttf",
+    "public/assets/fonts/noto-sans.scss": "fonts/noto-sans.scss",
+    "public/assets/fonts/roboto-bold.ttf": "fonts/roboto-bold.ttf",
+    "public/assets/fonts/roboto-bold.woff": "fonts/roboto-bold.woff",
+    "public/assets/fonts/roboto-light.ttf": "fonts/roboto-light.ttf",
+    "public/assets/fonts/roboto-light.woff": "fonts/roboto-light.woff",
+    "public/assets/fonts/roboto-medium.ttf": "fonts/roboto-medium.ttf",
+    "public/assets/fonts/roboto-medium.woff": "fonts/roboto-medium.woff",
+    "public/assets/fonts/roboto-regular.ttf": "fonts/roboto-regular.ttf",
+    "public/assets/fonts/roboto-regular.woff": "fonts/roboto-regular.woff"
+  }
+}
