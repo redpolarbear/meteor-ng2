@@ -6,5 +6,5 @@ import template from './app.component.html';
   template,
 })
 export class AppComponent {
-  title = 'app works!';
+  title = 'meteor-ng2 project';
 }
