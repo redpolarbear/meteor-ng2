@@ -11,6 +11,9 @@ import { BookStackComponent } from './book-stack/book-stack.component';
 import { FoodStackComponent } from './food-stack/food-stack.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
+// Providers
+import { AuthService } from './providers/auth.service';
+
 // Routing
 import { AppRoutingModule } from './app-routing.module';
 
@@ -35,7 +38,9 @@ function declarations() {
 // }
 
 function providers() {
-  return [];
+  return [
+    AuthService
+  ];
 }
 
 @NgModule({

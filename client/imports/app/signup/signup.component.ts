@@ -7,7 +7,10 @@ import * as md5 from 'md5';
 import template from './signup.component.html';
 
 // models
-import { User } from '../models/user';
+import { User } from '../models/user.interface';
+
+// providers
+import { AuthService } from '../providers/auth.service';
 
 @Component({
   selector: 'app-signup',
@@ -16,7 +19,7 @@ import { User } from '../models/user';
 export class SignupComponent implements OnInit {
   signupForm: FormGroup;
 
-  constructor(private formBuilder: FormBuilder) { }
+  constructor(private formBuilder: FormBuilder, public authService: AuthService) { }
 
   ngOnInit() {
     this._buildForm();
@@ -24,22 +27,34 @@ export class SignupComponent implements OnInit {
 
   _buildForm() {
     this.signupForm = this.formBuilder.group({
+      firstName: ['', [<any>Validators.required, <any>Validators.minLength(3)]],
+      lastName: ['', [<any>Validators.required, <any>Validators.minLength(3)]],
       email: ['', [<any>Validators.required, <any>Validators.minLength(6)]],
       password: ['', [<any>Validators.required, <any>Validators.minLength(6)]]
     })
   }
   
-  doSignup(user: User, isValid: boolean) {
+  doSignup(formValues: any, isValid: boolean) {
     if (isValid) {
-      console.log(user);
-      let email = user.email.trim();
-      let password = user.password.trim();
-      let profile = {
-        photoURL: 'https://www.gravatar.com/avatar/' + md5(email.toLowerCase()) + '?default=mm&s=256'
-      }
-      Accounts.createUser({ email, password, profile }, (error) => {
-        console.log('Signup Callback', error);
-      })
+      console.log(formValues);
+      let user: User = {
+        email: formValues.email,
+        password: formValues.password,
+        profile: {
+          name: {
+            first: formValues.firstName,
+            last: formValues.lastName
+          },
+          photoURL: 'https://www.gravatar.com/avatar/' + md5(formValues.email.toLowerCase()) + '?default=mm&s=256'
+        }
+      };
+      this.authService.signUp(user)
+        .then( (msg) => {
+          console.log('signup Callback', msg);
+        })
+        .catch ( (error) => {
+          console.log(error);
+        })
     }
   }
 
